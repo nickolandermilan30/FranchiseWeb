@@ -104,16 +104,18 @@ const DigitalPrint = ({ data, onBack }) => {
                     <span className="border-b border-black flex-1 px-2 text-[12px]">{d.address}</span>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <span>Classification of Tricycle:</span>
-                    <div className="flex items-center space-x-1">
-                        <span className="font-bold">({d.classification === 'Public Utility' ? '✔' : ' '})</span>
-                        <span>Public Utility</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                        <span className="font-bold">({d.classification === 'Private Utility' ? '✔' : ' '})</span>
-                        <span>Private Utility</span>
-                    </div>
-                </div>
+    <span>Classification of Tricycle:</span>
+    <div className="flex items-center space-x-1">
+        {/* Maglalagay ng ✔ kung ang classification ay 'Public' o 'Public Utility' */}
+        <span className="font-bold">({(d.classification === 'Public' || d.classification === 'Public Utility') ? '✔' : ' '})</span>
+        <span>Public Utility</span>
+    </div>
+    <div className="flex items-center space-x-1">
+        {/* Maglalagay ng ✔ kung ang classification ay 'Private' o 'Private Utility' */}
+        <span className="font-bold">({(d.classification === 'Private' || d.classification === 'Private Utility') ? '✔' : ' '})</span>
+        <span>Private Utility</span>
+    </div>
+</div>
                 <div className="flex items-end">
                     <span className="w-40">Validity Period:</span>
                     <span className="border-b border-black flex-1 px-2 font-bold uppercase">{d.validityPeriod || 'THREE (3) YEARS'}</span>
